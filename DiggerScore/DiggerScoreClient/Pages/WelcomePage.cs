@@ -43,12 +43,13 @@ namespace DiggerScoreClient.Pages
                 else if (answer!.Equals("2"))
                 {
                     ShoppingPage _ = new();
-                }   
-
+                } 
+                
                 else
                 {
                     Console.WriteLine(exitMessage);
-                    Console.WriteLine("Press any key to close this");
+                    Console.WriteLine("Press << Escape >> to close this");
+                    while (Console.ReadKey().Key!=ConsoleKey.Escape) { }
                     break;
                 }
             }
