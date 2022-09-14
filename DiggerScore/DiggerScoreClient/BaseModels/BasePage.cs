@@ -1,5 +1,6 @@
 ﻿using DiggerScoreClient.Services;
 using Serilog.Core;
+using Validation;
 
 namespace DiggerScoreClient.BaseModels
 {
@@ -13,13 +14,13 @@ namespace DiggerScoreClient.BaseModels
         public BasePage()
         {
             GetTitle();
-            Log.Debug($"Transition to << {PageName} >> in [{Environment.CurrentManagedThreadId}] thread");
+            Log.Debug($"Transition to << {PageName} >>".WithCurrentThreadId());
         }
 
         public void GetTitle()
         {
             Console.Clear();
-            Console.Title=PageName;
+            Console.Title=PageName!;
             Console.ForegroundColor=(ConsoleColor)PageColor!;
             Console.WriteLine("----------"+PageName+"----------");
         }

@@ -45,7 +45,7 @@ namespace DiggerScoreAdministration.Services
 
         public static void GetNewOrderActionHistory()
         {
-            string? connectionString = @"D:\DiggerScoreAdministration\DiggerScoreAdministration\.json\CurrentCount.json";
+            string? connectionString = @"D:\GitHubRepositories\C_Sharp_Course_Final_Project\DiggerScore\DiggerScoreAdministration\.json\CurrentCount.json";
 
             HistoryCount? previosHistoryCount = default;
 
@@ -69,7 +69,7 @@ namespace DiggerScoreAdministration.Services
             if (newOrderCount>previosOrderCount)
             {
                 Console.WriteLine("You have new order(s)");
-                Console.ForegroundColor=ConsoleColor.DarkRed;
+                Console.ForegroundColor=ConsoleColor.DarkGray;
 
                 using (DiggerScoreDbContext db = new())
                 {

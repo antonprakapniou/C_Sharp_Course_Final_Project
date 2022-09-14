@@ -12,7 +12,7 @@ namespace DiggerScoreAdministration
             Console.Clear();
             Console.Title="Set discount page";
 
-            string? connectionString = @"D:\DiggerScoreAdministration\DiggerScoreAdministration\.json\Discount.json";
+            string? connectionString = @"D:\GitHubRepositories\C_Sharp_Course_Final_Project\DiggerScore\DiggerScoreAdministration\.json\Discount.json";
 
             using (FileStream _ = new FileStream(connectionString, FileMode.OpenOrCreate))
             {

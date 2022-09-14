@@ -7,7 +7,7 @@ namespace DiggerScoreClient.Repositories
     {
         public Discount Get()
         {
-            using (FileStream fs = new FileStream(@"D:\DiggerScoreAdministration\DiggerScoreAdministration\.json\Discount.json", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(@"D:\GitHubRepositories\C_Sharp_Course_Final_Project\DiggerScore\DiggerScoreAdministration\.json\Discount.json", FileMode.OpenOrCreate))
             {
                 return JsonSerializer.Deserialize<Discount>(fs)!;
             }
