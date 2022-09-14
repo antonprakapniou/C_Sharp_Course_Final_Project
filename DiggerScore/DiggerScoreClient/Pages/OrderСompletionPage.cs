@@ -5,12 +5,12 @@ namespace DiggerScoreClient.Pages
 {
     public sealed class OrderСompletionPage:BasePage, IDisposable
     {
+        public override string? PageName { get; set; } = "Order completion page";
+
         public List<SingleOrderPosition>? CurrentOrderList { get; set; }
 
         public OrderСompletionPage()
         {
-            PageName = "Order completion page";
-            
             CurrentOrderList=new();
 
             while (true)

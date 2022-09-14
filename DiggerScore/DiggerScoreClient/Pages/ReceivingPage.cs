@@ -5,6 +5,8 @@ namespace DiggerScoreClient.Pages
 {
     public sealed class ReceivingPage:BasePage, IDisposable
     {
+        public override string? PageName { get; set; } = "Receiving page";
+
         public User? TrueUser { get; set; }
         public List<SingleOrderPosition>? TrueOrderList { get; set; }
         public byte TrueDiscount { get; set; }
@@ -13,7 +15,6 @@ namespace DiggerScoreClient.Pages
 
         public ReceivingPage()
         {
-            PageName="Receiving Page";
             TrueUser=new AuthorizationPage().CurrentUser;
             TrueOrderList=new OrderConfirmationPage().ConfirmOrderList;
             TrueDiscount=new DiscountConfirmPage().ConfirmDiscount;

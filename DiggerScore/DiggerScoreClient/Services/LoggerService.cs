@@ -21,7 +21,6 @@ namespace DiggerScoreClient.Services
                 .CreateLogger();
 
             return log;
-        }
-            
+        }            
     }
 }

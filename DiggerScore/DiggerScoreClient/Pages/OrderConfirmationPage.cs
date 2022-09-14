@@ -6,12 +6,12 @@ namespace DiggerScoreClient.Pages
 {
     public sealed class OrderConfirmationPage:BasePage, IDisposable
     {
+        public override string? PageName { get; set; } = "Order confirmation page";
+
         public List<SingleOrderPosition>? ConfirmOrderList { get; set; }
 
         public OrderConfirmationPage()
         {
-            PageName = "Order confirmation page";
-
             ConfirmOrderList=new();
 
             while(true)

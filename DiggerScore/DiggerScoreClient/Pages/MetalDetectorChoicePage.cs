@@ -7,10 +7,10 @@ namespace DiggerScoreClient.Pages
 {
     public sealed class MetalDetectorChoicePage:BaseChoicePage,IDisposable
     {
+        public override string? PageName { get; set; } = "Metal detector choice page";
+
         public MetalDetectorChoicePage()
         {
-            PageName="Metal detector choice page";
-
             MetalDetector? currentProduct = default;
 
             using (MetalDetectorRepository _=new())

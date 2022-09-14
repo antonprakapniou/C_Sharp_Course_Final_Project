@@ -6,10 +6,10 @@ namespace DiggerScoreClient.Pages
 {
     public sealed class ShoppingPage:BasePage,IDisposable
     {
+        public override string? PageName { get; set; } = "Shopping page";
+
         public ShoppingPage()
         {
-            PageName="Shoppin page";
-
             ReceivingPage _ = new();
 
             _.TrueOrderList!.UpdateById().ToConsoleTable(

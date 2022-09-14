@@ -8,10 +8,10 @@ namespace DiggerScoreClient.Pages
 {
     public class OtherProductChoicePage:BaseChoicePage,IDisposable
     {
+        public override string? PageName { get; set; } = "Other product choice page";
+
         public OtherProductChoicePage()
         {
-            PageName="Pther product choice page";
-
             OtherProduct? currentProduct = default;
 
             using (OtherProductRepository _ = new())

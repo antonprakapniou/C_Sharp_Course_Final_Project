@@ -3,11 +3,14 @@ using DiggerScoreClient.Repositories;
 
 namespace DiggerScoreClient.Pages
 {
-    public sealed class WelcomePage:BasePage,IDisposable
+    public sealed class MainPage:BasePage,IDisposable
     {
-        public WelcomePage()
+        public override string? PageName { get; set; } = "Main page";
+
+        public MainPage()
         {
-            PageName="Welcome page";
+            Log.Debug($"App started in [{Environment.CurrentManagedThreadId}] thread");
+            Log.Information($"Score opened in [{Environment.CurrentManagedThreadId}] thread");
 
             GetTitle();
             
@@ -30,6 +33,7 @@ namespace DiggerScoreClient.Pages
 
             while (true)
             {
+                Console.Clear();
                 Console.WriteLine(welcomeMessage);
                 Console.WriteLine(inputMessage);
 
@@ -58,6 +62,9 @@ namespace DiggerScoreClient.Pages
             {
                 _.Create(new("NonameUser", "visit site"));
             }
+
+            Log.Information($"Score closed in [{Environment.CurrentManagedThreadId}] thread");
+            Log.Debug($"App stopped in [{Environment.CurrentManagedThreadId}] thread");
         }
 
         public void Dispose() { }

@@ -7,6 +7,8 @@ namespace DiggerScoreClient.Pages
 {
     public class DiscountConfirmPage:BasePage, IDisposable
     {
+        public override string? PageName { get; set; } = "Discount confirm page";
+
         public byte ConfirmDiscount { get; set; }
 
         public DiscountConfirmPage()

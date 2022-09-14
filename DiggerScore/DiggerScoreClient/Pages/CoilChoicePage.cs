@@ -7,10 +7,10 @@ namespace DiggerScoreClient.Pages
 {
     public sealed class CoilChoicePage:BaseChoicePage,IDisposable
     {
+        public override string? PageName { get; set; } = "Coil choice page";
+
         public CoilChoicePage()
         {
-            PageName="Coil page name";
-
             Coil? currentProduct = default;
 
             using (CoilRepository _ = new())

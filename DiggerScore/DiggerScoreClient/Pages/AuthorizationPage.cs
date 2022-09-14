@@ -6,12 +6,12 @@ namespace DiggerScoreClient.Pages
 {
     public sealed class AuthorizationPage :BasePage, IDisposable
     {
+        public override string? PageName { get; set; } = "Authorization page";
+
         public User? CurrentUser { get; set; }
 
         public AuthorizationPage()
         {
-            PageName = "Authorization page";
-
             Console.WriteLine(
                     "Press\n" +
                     "<< 1 >> to registration\n" +
