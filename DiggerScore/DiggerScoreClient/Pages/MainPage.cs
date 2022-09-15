@@ -9,8 +9,8 @@ namespace DiggerScoreClient.Pages
 
         public MainPage()
         {
-            Log.Debug($"App started in [{Environment.CurrentManagedThreadId}] thread");
-            Log.Information($"Score opened in [{Environment.CurrentManagedThreadId}] thread");
+            Log!.Debug($"App started in [{Environment.CurrentManagedThreadId}] thread");
+            Log!.Information($"Score opened in [{Environment.CurrentManagedThreadId}] thread");
 
             GetTitle();
             

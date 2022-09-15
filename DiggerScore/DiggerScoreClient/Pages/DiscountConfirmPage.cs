@@ -18,7 +18,7 @@ namespace DiggerScoreClient.Pages
             Discount? discount = default;
 
             using DiscountRepository _ = new();
-            discount=_.Get();
+            discount=_.GetOne();
 
             while (true)
             {

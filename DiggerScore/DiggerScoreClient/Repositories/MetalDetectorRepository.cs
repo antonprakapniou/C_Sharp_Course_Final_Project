@@ -1,41 +1,34 @@
-﻿using DiggerScoreClient.Contexts;
+﻿using DiggerScoreClient.BaseModels;
+using DiggerScoreClient.Contexts;
 using DiggerScoreClient.Interfaces;
 using DiggerScoreClient.SubModels;
 using Validation;
 
 namespace DiggerScoreClient.Repositories
 {
-    public sealed class MetalDetectorRepository : IDbRepository<MetalDetector>, IDisposable
+    public sealed class MetalDetectorRepository :BaseRepository, IRead<MetalDetector>
     {
-        public void Create(MetalDetector _)
-        {
-            using DiggerScoreDbContext db = new();
-            db.MetalDetectors.Add(_);
-            db.SaveChanges();
-        }
-
-        public void Delete(int id) { }
-
-        public MetalDetector GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public MetalDetector GetOne()
         {
             using DiggerScoreDbContext db = new();
             {
+                Log!.Debug("Metal detector database access ".WithCurrentThreadId());
+
                 while (true)
                 {
                     int id = TypeConsoleInput.IntValue(
                     "Press the item number in the price list for selection", "Invalid value. Try again");
 
-                    if (db.MetalDetectors.ToList().Any(_ => _.Id == id))
+                    try
                     {
                         return db.MetalDetectors.ToList().First(_ => _.Id == id);
                     }
 
-                    else Console.WriteLine("No such position exists. Try again");
+                    catch (Exception ex)
+                    {
+                        Log.Warning(ex.Message.WithCurrentThreadId());
+                        Console.WriteLine("No such position exists");
+                    }
                 }
             }
         }
@@ -56,7 +49,10 @@ namespace DiggerScoreClient.Repositories
             Console.WriteLine(titleMessage);
 
             using DiggerScoreDbContext db = new();
-            db.MetalDetectors.ToList().ToConsoleTable(new Dictionary<string, string>
+            {
+                Log!.Debug("Metal detector database access".WithCurrentThreadId());
+
+                db.MetalDetectors.ToList().ToConsoleTable(new Dictionary<string, string>
                 {
                     { "Id", "Id" },
                     {"Type","ProductType" },
@@ -70,6 +66,8 @@ namespace DiggerScoreClient.Repositories
                     {"Guarantee","Guarantee" },
                     {"Status","Status" },
                 });
+            }
+            
 
             Console.WriteLine(postMessage1 + postMessage2);
         }
@@ -78,9 +76,5 @@ namespace DiggerScoreClient.Repositories
         {
             await Task.Run(() => Read());  
         }
-
-        public void Update(int id) { }
-
-        void IDisposable.Dispose() { }
     }
 }

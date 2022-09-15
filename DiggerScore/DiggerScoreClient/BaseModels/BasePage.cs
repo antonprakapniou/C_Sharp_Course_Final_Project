@@ -4,17 +4,15 @@ using Validation;
 
 namespace DiggerScoreClient.BaseModels
 {
-    public abstract class BasePage
+    public abstract class BasePage:BaseClass
     {
-        public static Logger Log { get; set; } = LoggerService.GetLogger();
-
         public virtual string? PageName { get; set; } = "PageNameDefault";
         public ConsoleColor? PageColor { get; set; } = ConsoleColor.DarkYellow;
 
         public BasePage()
         {
             GetTitle();
-            Log.Debug($"Transition to << {PageName} >>".WithCurrentThreadId());
+            Log!.Debug($"Transition to << {PageName} >>".WithCurrentThreadId());
         }
 
         public void GetTitle()
