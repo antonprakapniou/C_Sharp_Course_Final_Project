@@ -17,6 +17,7 @@ namespace DiggerScoreClient.Pages
             {
                 Task task = _.ReadAsync();
                 task.Wait();
+                Log!.Information("Metal detector price view".WithCurrentThreadId());
             }
 
             using (MetalDetectorRepository _ = new())

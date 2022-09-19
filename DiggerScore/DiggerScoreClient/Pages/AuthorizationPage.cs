@@ -1,6 +1,7 @@
 ﻿using DiggerScoreClient.BaseModels;
 using DiggerScoreClient.MainModels;
 using DiggerScoreClient.Repositories;
+using Validation;
 
 namespace DiggerScoreClient.Pages
 {
@@ -19,9 +20,7 @@ namespace DiggerScoreClient.Pages
 
             using UserRepository _ = new();
             {
-                string? answer = Console.ReadLine();
-
-                if (answer!.Equals("1"))
+                if (Console.ReadLine()!.Equals("1"))
                 {
                     Task<User> task = _.CreateAndGetAsync();
                     task.Wait();
@@ -46,10 +45,23 @@ namespace DiggerScoreClient.Pages
                 }
             }
 
-            Console.WriteLine("Your data");
-            Console.WriteLine(CurrentUser);
-            Console.WriteLine("Enter << Escape >> to continue");
-            while (Console.ReadKey().Key!=ConsoleKey.Escape) { }
+            Console.WriteLine($"\nYour data\n{CurrentUser}");            
+
+            Log!.Information($"{CurrentUser.Name} {CurrentUser.Login} logged in".WithCurrentThreadId());
+
+            Console.WriteLine(
+                "Press\n" +
+                "<< 1 >> to change any points\n" +
+                "<< other key >> to continue");
+
+            string? answer = Console.ReadLine();
+
+            if (answer!.Equals("1"))
+            {
+                UserDataUpdatePage page = new(CurrentUser);
+                CurrentUser=page.NewUser;
+                Console.WriteLine($"\nYour new data\n{CurrentUser}");
+            }
         }
 
         public void Dispose() { }

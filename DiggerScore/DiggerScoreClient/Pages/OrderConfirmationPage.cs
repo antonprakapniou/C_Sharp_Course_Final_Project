@@ -16,6 +16,7 @@ namespace DiggerScoreClient.Pages
 
             while(true)
             {
+                Console.Clear();
                 Console.WriteLine("It's your order");
                 OrderСompletionPage _=new();
                 _.CurrentOrderList!.UpdateById().ToConsoleTable(

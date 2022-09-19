@@ -1,5 +1,4 @@
 ﻿using DiggerScoreClient.BaseModels;
-using DiggerScoreClient.Contexts;
 using DiggerScoreClient.Repositories;
 using DiggerScoreClient.SubModels;
 using Validation;
@@ -18,6 +17,7 @@ namespace DiggerScoreClient.Pages
             {
                 Task task = _.ReadAsync();
                 task.Wait();
+                Log!.Information("Other product price view".WithCurrentThreadId());
             }
 
             using (OtherProductRepository _ = new())

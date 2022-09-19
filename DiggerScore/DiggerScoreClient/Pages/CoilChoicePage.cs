@@ -16,6 +16,7 @@ namespace DiggerScoreClient.Pages
             using (CoilRepository _ = new())
             {
                 _.ReadAsync().Wait();
+                Log!.Information("Coil price view".WithCurrentThreadId());
             }
 
             using (CoilRepository _ = new())

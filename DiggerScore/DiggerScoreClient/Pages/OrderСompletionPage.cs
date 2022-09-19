@@ -1,5 +1,6 @@
 ﻿using DiggerScoreClient.BaseModels;
 using DiggerScoreClient.MainModels;
+using Validation;
 
 namespace DiggerScoreClient.Pages
 {
@@ -28,6 +29,7 @@ namespace DiggerScoreClient.Pages
                     using (MetalDetectorChoicePage _ = new())
                     {
                         CurrentOrderList!.Add(_.CurrentOrder!);
+                        Log!.Information($"{_.CurrentOrder!.FullName} added in the basket".WithCurrentThreadId());
                     }
 
                 }
@@ -37,6 +39,7 @@ namespace DiggerScoreClient.Pages
                     using (CoilChoicePage _ = new())
                     {
                         CurrentOrderList!.Add(_.CurrentOrder!);
+                        Log!.Information($"{_.CurrentOrder!.FullName} added in the basket".WithCurrentThreadId());
                     }
                 }
 
@@ -45,6 +48,7 @@ namespace DiggerScoreClient.Pages
                     using (OtherProductChoicePage _ = new())
                     {
                         CurrentOrderList!.Add(_.CurrentOrder!);
+                        Log!.Information($"{_.CurrentOrder!.FullName} added in the basket".WithCurrentThreadId());
                     }
                 }
 

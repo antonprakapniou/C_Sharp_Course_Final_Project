@@ -29,7 +29,10 @@ namespace DiggerScoreClient.Pages
             using (OrderActionHistoryRepository rep = new())
             {
                 foreach (var item in _.TrueOrderList!)
-                    rep.Create(new($"{_.TrueUser!.Name} {_.TrueUser.Login}",$"ordered {item.FullName} in quantity {item.Count}"));
+                {
+                    rep.Create(new($"{_.TrueUser!.Name} {_.TrueUser.Login}", $"ordered {item.FullName} in quantity {item.Count}"));
+                    Log!.Information($"{_.TrueUser!.Name} {_.TrueUser.Login}", $"ordered {item.FullName} in quantity {item.Count}".WithCurrentThreadId());
+                }
             }
 
             Console.WriteLine("Press << Escape >> to leave this page");

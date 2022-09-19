@@ -31,6 +31,6 @@ namespace DiggerScoreClient.MainModels
             $"Phone number: {PhoneNumber}\n" +
             $"Email: {Email}\n" +
             $"Delivery: {Delivery}\n" +
-            $"Creatinon: {Creation}";
+            $"Creation: {Creation}";
     }
 }

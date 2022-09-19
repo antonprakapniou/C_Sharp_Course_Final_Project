@@ -1,5 +1,6 @@
 ﻿using DiggerScoreClient.BaseModels;
 using DiggerScoreClient.Repositories;
+using Validation;
 
 namespace DiggerScoreClient.Pages
 {
@@ -27,6 +28,7 @@ namespace DiggerScoreClient.Pages
                 task.Wait();
             }
 
+            Log!.Information("Noname user view the price".WithCurrentThreadId());
             Console.WriteLine("\nPress << Escape >> to leave this page");
             while (Console.ReadKey().Key!=ConsoleKey.Escape) { }
         }
